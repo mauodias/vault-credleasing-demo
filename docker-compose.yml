@@ -40,3 +40,17 @@ services:
         cap_add:
             - IPC_LOCK
         command: server -config=/config/vault.hcl
+
+    app:
+        container_name: app
+        build: app/
+        links:
+            - consul:consul
+            - vault:vault
+            - postgres:postgres
+        depends_on:
+            - vault
+        ports:
+            - "1234:1234"
+        volumes:
+            - ./app:/usr/src/app
