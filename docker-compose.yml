@@ -23,6 +23,7 @@ services:
         volumes:
             - ./config:/config
             - ./_data/consul:/data
+            - ./_scripts:/scripts
         command: agent -server -data-dir=/data -bind 0.0.0.0 -client 0.0.0.0 -bootstrap-expect=1
 
     vault:
