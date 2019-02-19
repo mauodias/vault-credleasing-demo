@@ -8,5 +8,3 @@ vault unseal -address=${VAULT_ADDR} $(grep 'Key 2:' keys.txt | awk '{print $NF}'
 vault unseal -address=${VAULT_ADDR} $(grep 'Key 3:' keys.txt | awk '{print $NF}')
 
 vault auth -address=${VAULT_ADDR} ${VAULT_TOKEN}
-
-vault policy write user scripts/policy.hcl

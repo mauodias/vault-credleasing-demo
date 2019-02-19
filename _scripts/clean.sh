@@ -5,6 +5,7 @@ case ${answer:0:1} in
         echo "[*] Removing files..."
         rm -rf ./_data/consul
         rm -rf ./_data/postgres
+        docker-compose down
     ;;
     * )
         echo "[*] Aborting..."

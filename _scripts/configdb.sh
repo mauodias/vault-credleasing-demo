@@ -2,8 +2,6 @@ export VAULT_ADDR=http://127.0.0.1:8200
 
 DEFAULT_TTL=${1-30}
 
-echo $DEFAULT_TTL
-
 vault secrets enable database
 
 vault write -address=$VAULT_ADDR database/config/postgres \

@@ -11,7 +11,7 @@ def get_user(username, password):
     response = requests.post(VAULT_URL.format(username), data=json.dumps(body))
     response_json = json.loads(response.text)
     user_token = response_json["auth"]["client_token"]
-    print(user_token)
+    return user_token
 
 if __name__ == '__main__':
     if len(sys.argv) is not 3:
@@ -19,4 +19,4 @@ if __name__ == '__main__':
         sys.exit(1)
     username = sys.argv[1]
     password = sys.argv[2]
-    get_user(username, password)
+    print(get_user(username, password))
