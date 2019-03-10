@@ -1,3 +1,4 @@
 _data
 app/node_modules
 .venv/
+log.txt
