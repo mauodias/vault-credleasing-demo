@@ -6,7 +6,7 @@ vault secrets enable database
 
 vault write -address=$VAULT_ADDR database/config/postgres \
     plugin_name=postgresql-database-plugin \
-    connection_url="postgresql://{{username}}:{{password}}@postgres:5432?sslmode=disable" \
+    connection_url="postgresql://{{username}}:{{password}}@postgres:5432/demodb?sslmode=disable" \
     allowed_roles="*" \
     username="postgres" \
     password="securepassword"
