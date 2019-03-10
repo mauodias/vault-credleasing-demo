@@ -1,2 +1,3 @@
 _data
 app/node_modules
+.venv/
