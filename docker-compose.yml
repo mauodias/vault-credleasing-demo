@@ -11,8 +11,9 @@ services:
           - TZ=GMT
         volumes:
           - ./_data/postgres:/var/lib/postgresql/data"
+          - ./_scripts/initdb:/docker-entrypoint-initdb.d
         ports:
-          - 5432:5432
+          - 2345:5432
 
     consul:
         container_name: consul
