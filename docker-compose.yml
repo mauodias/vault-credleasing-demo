@@ -42,9 +42,8 @@ services:
             - IPC_LOCK
         command: server -config=/config/vault.hcl
 
-    app:
-        container_name: app
-        build: app/
+    webapp:
+        build: ./webapp
         links:
             - consul:consul
             - vault:vault
@@ -52,6 +51,7 @@ services:
         depends_on:
             - vault
         ports:
-            - "1234:1234"
+        - "8080:8080"
         volumes:
-            - ./app:/usr/src/app
+        - .:/app
+        command: "npm run serve"
