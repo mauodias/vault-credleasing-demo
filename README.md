@@ -20,7 +20,6 @@ Para rodar a demo, clone o repositório e siga os seguintes passos:
 A aplicação deve ser bem auto-explicativa, mas o fluxo esperado é um dos seguintes:
 1. Autenticação no vault para gerar um token
 2. Solicitar credenciais do banco de dados
-  - Leitura ou escrita
 3. Atuar no banco de dados de acordo com as credenciais solicitadas
 
 Pull requests são extremamente bem vindos!
