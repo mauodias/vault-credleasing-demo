@@ -6,8 +6,21 @@ Este repositório serve de prova de conceito para a funcionalidade de `credentia
 
 - docker
 - docker-compose
+- python3
 
-## Instalação
+## Execução
 
-Para inicializar os containers, basta clonar o repositório e rodar o comando `docker-compose up -d`. Três containers serão criados, um com vault, um com consul e um com postgres. As credenciais do usuário do postgres estão explícitas no arquivo docker-compose.yml.
-Apesar de estar recebendo conexões normalmente, o vault não estará inicializado. 
+Para rodar a demo, clone o repositório e siga os seguintes passos:
+
+- `docker-compose up -d` para inicializar os containers
+- `docker exec vault /bin/ash -c "/scripts/fullsetup.sh 180"` para inicializar o vault e configurar o tempo de vida das credenciais para 180 segundos
+- `source cli_app/.venv/bin/activate` ativa o virtualenv
+- `python cli_app/menu.py`
+
+A aplicação deve ser bem auto-explicativa, mas o fluxo esperado é um dos seguintes:
+1. Autenticação no vault para gerar um token
+2. Solicitar credenciais do banco de dados
+  - Leitura ou escrita
+3. Atuar no banco de dados de acordo com as credenciais solicitadas
+
+Pull requests são extremamente bem vindos!
